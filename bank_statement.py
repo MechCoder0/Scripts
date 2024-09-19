@@ -3,8 +3,7 @@ from re import sub
 from datetime import date
 
 # credit_card_file = input("Enter the file name: ")
-# month = int(input("Enter the month: "))
-month = 9
+month = int(input("Enter the month: "))
 
 def get_date_obj(date_string):
     date_list = date_string.split("/")
@@ -36,10 +35,8 @@ with open('creditCardAccountActivityExport.csv') as csvfile:
 
     for row in reader:
         current_date = get_date_obj(row[0])
-        print(current_date, row)
         if current_date.month == month and current_date.year > 2023:
             current_category = row[4]
-            print(current_category)
             if current_category == "" or current_category == "-":
                 current_category = "Misc"
 
